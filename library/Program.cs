@@ -1,19 +1,48 @@
-﻿class Book
+﻿namespace library
 {
-    string Title;
-    string Author;
-    string ISBN;
-
-    static void Main(String[] args)
+    class Book
     {
-        Book book = new Book();
+        private string title;
+        private string author;
+        private string isbn;
 
-        book.Title = "C# for beginners";
-        book.Author = "Billgates";
-        book.ISBN = "12345678";
+        public string Title
+        {
+            get { return title; }
+            set { title = value; }
+        }
 
-        Console.WriteLine($"Book title: {book.Title}");
-        Console.WriteLine($"Book author: {book.Author}");
-        Console.WriteLine($"Book ISBN: {book.ISBN}");
+        public string Author { 
+            get { return author; }
+            set { author = value; }
+        }
+
+        public string ISBN
+        {
+            get { return isbn; }
+            set { isbn = value; }
+        }
+
+        public Book(string bookTitle, string bookAuthor, string bookISBN)
+        {
+            this.title = bookTitle;
+            this.author = bookAuthor;
+            this.isbn = bookISBN;
+        }
+
+        void DisplayInfo()
+        {
+            Console.WriteLine($"Book title: {Title}");
+            Console.WriteLine($"Book author: {Author}");
+            Console.WriteLine($"Book ISBN: {ISBN}");
+            Console.WriteLine();
+        }
+
+        static void Main(string[] args)
+        {
+            Book book = new Book("C# for beginners", "Bill Gates", "12345678");
+
+            book.DisplayInfo();
+        }
     }
 }
